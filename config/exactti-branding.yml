@@ -1,0 +1,27 @@
+# Exact-Ti Security Platform — Branding Configuration
+# Aplicar em: config/opensearch_dashboards.yml
+
+opensearchDashboards.branding:
+  applicationTitle: "Exact-Ti Security Platform"
+  useExpandedHeader: false
+  logo:
+    defaultUrl: "/ui/assets/exact-ti/exact-ti-logo.svg"
+    darkModeUrl: "/ui/assets/exact-ti/exact-ti-logo-dark.svg"
+  mark:
+    defaultUrl: "/ui/assets/exact-ti/exact-ti-mark.svg"
+    darkModeUrl: "/ui/assets/exact-ti/exact-ti-mark-dark.svg"
+  loadingLogo:
+    defaultUrl: "/ui/assets/exact-ti/exact-ti-loading.svg"
+  faviconUrl: "/ui/assets/exact-ti/favicon.ico"
+  applicationTitle: "Exact-Ti Security Platform"
+
+# Customização da interface
+customization.enabled: true
+
+# Configurações de segurança e servidor
+server.name: "exactti-dashboard"
+server.defaultRoute: "/app/exactti"
+
+# Ocultar referências ao OpenSearch
+opensearchDashboards.survey.url: ""
+home.disableWelcomeScreen: true
