@@ -116,8 +116,8 @@
     "generate:grammars:ppl": "yarn workspace @osd/antlr-grammar generate:opensearchppl",
     "generate:grammars:ppl-simplified": "yarn workspace @osd/antlr-grammar generate:opensearchppl-simplified",
     "generate:grammars:dql": "yarn workspace @osd/antlr-grammar generate:dql",
-    "wzd-revision": "scripts/use_node -e \"console.log(require('./package.json').wazuh.revision)\"",
-    "wzd-version": "scripts/use_node -e \"console.log(require('./package.json').wazuh.version)\""
+    "wzd-revision": "scripts/use_node -e \"console.log(require('./package.json').exactti.revision)\"",
+    "wzd-version": "scripts/use_node -e \"console.log(require('./package.json').exactti.version)\""
   },
   "repository": {
     "type": "git",
