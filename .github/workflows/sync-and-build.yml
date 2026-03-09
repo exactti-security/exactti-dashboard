@@ -1,0 +1,80 @@
+name: Exact-Ti Dashboard — Sync & Build
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  sync-upstream:
+    name: 🔄 Sync Wazuh Dashboard Upstream
+    runs-on: ubuntu-22.04
+    outputs:
+      updated: ${{ steps.sync.outputs.updated }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "Exact-Ti Bot"
+          git config user.email "devops@exactti.com"
+
+      - name: Sync upstream
+        id: sync
+        run: |
+          git remote add upstream https://github.com/wazuh/wazuh-dashboard.git || true
+          git fetch upstream main
+          LOCAL=$(git rev-parse HEAD)
+          UPSTREAM=$(git rev-parse upstream/main)
+          if [ "$LOCAL" != "$UPSTREAM" ]; then
+            echo "updated=true" >> $GITHUB_OUTPUT
+            git merge upstream/main --no-edit --strategy-option=ours || true
+            git push origin main
+          else
+            echo "updated=false" >> $GITHUB_OUTPUT
+          fi
+
+  build-dashboard:
+    name: 🏗️ Build Dashboard Exact-Ti
+    needs: sync-upstream
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'yarn'
+
+      - name: Apply Exact-Ti branding
+        run: |
+          echo "🎨 Aplicando branding Exact-Ti..."
+          find . -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.json' \) \
+            -not -path '*/node_modules/*' -not -path '*/.git/*' \
+            -exec sed -i 's/Wazuh/Exact-Ti/g' {} \;
+          # Atualizar título da aplicação
+          if [ -f config/opensearch_dashboards.yml ]; then
+            echo "opensearchDashboards.branding:" >> config/opensearch_dashboards.yml
+            echo "  applicationTitle: 'Exact-Ti Security Platform'" >> config/opensearch_dashboards.yml
+            echo "customization.enabled: true" >> config/opensearch_dashboards.yml
+          fi
+
+      - name: Install dependencies
+        run: |
+          yarn osd bootstrap --skip-opensearch-dashboards-ui || yarn install --frozen-lockfile || true
+        env:
+          NODE_OPTIONS: '--max-old-space-size=8192'
+
+      - name: Build summary
+        run: |
+          echo "## 🏗️ Build Dashboard" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Branding Exact-Ti aplicado" >> $GITHUB_STEP_SUMMARY
+          echo "Branch: `${{ github.ref_name }}`" >> $GITHUB_STEP_SUMMARY
