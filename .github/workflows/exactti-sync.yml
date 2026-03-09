@@ -1,0 +1,71 @@
+name: "Exact-Ti Dashboard — Sync & Build"
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  sync-upstream:
+    name: "Sync wazuh/wazuh-dashboard upstream"
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.EXACTTI_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "exactti-bot"
+          git config user.email "devops@exactti.com"
+
+      - name: Sync upstream
+        run: |
+          git remote add upstream https://github.com/wazuh/wazuh-dashboard.git || true
+          git fetch upstream
+          git merge upstream/main --no-edit || echo "::warning::Merge conflict - manual review needed"
+
+      - name: Push
+        run: git push origin main
+
+  visual-rebranding:
+    name: "Apply Visual Rebranding"
+    runs-on: ubuntu-22.04
+    needs: sync-upstream
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.EXACTTI_TOKEN }}
+
+      - name: Rebrand titles and app name
+        run: |
+          find . -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.json' -o -name '*.yml' \) \
+            -not -path '*/.git/*' -not -path '*/node_modules/*' \
+            | xargs sed -i \
+              -e 's/Wazuh Dashboard/Exact-Ti Security Platform/g' \
+              -e 's/wazuh-dashboard/exactti-dashboard/g' \
+              2>/dev/null || true
+
+      - name: Replace OpenSearch branding config
+        run: |
+          cat >> config/opensearch_dashboards.yml << 'EOF'
+          # Exact-Ti Branding
+          opensearchDashboards.branding:
+            applicationTitle: "Exact-Ti Security Platform"
+            useExpandedHeader: false
+          customization.enabled: true
+          EOF
+
+      - name: Commit rebranding
+        run: |
+          git config user.name "exactti-bot"
+          git config user.email "devops@exactti.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "chore: apply Exact-Ti visual rebranding"
+          git push origin main || true
+
+      - name: Summary
+        run: echo "### Exact-Ti Dashboard rebranding complete" >> $GITHUB_STEP_SUMMARY
