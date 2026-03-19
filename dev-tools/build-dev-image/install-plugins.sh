@@ -10,28 +10,28 @@ old_category_object="id: 'opensearch',/{
 for plugin in $plugins; do
   cd $base_path_plugins
   if [[ $plugin =~ wazuh* ]]; then
-    # Clone the Wazuh security plugin
+    # Clone the Exact-Ti security plugin
     if [[ $plugin == "wazuh-security-dashboards-plugin" ]]; then
       git clone --depth 1 --branch ${WAZUH_DASHBOARD_SECURITY_BRANCH} https://github.com/wazuh/$plugin.git
     fi
-    # Clone the Wazuh dashboards reporting plugin
-    if [[ $plugin == "wazuh-dashboard-reporting" ]]; then
+    # Clone the Exact-Ti dashboards reporting plugin
+    if [[ $plugin == "exactti-dashboard-reporting" ]]; then
       git clone --depth 1 --branch ${WAZUH_DASHBOARD_REPORTING_BRANCH} https://github.com/wazuh/$plugin.git
     fi
-    # Clone the Wazuh dashboard security analytics plugin
-    if [[ $plugin == "wazuh-dashboard-security-analytics" ]]; then
+    # Clone the Exact-Ti dashboard security analytics plugin
+    if [[ $plugin == "exactti-dashboard-security-analytics" ]]; then
       git clone --depth 1 --branch ${WAZUH_DASHBOARD_SECURITY_ANALYTICS_BRANCH} https://github.com/wazuh/$plugin.git
     fi
-    # Clone the Wazuh dashboard notifications plugin
-    if [[ $plugin == "wazuh-dashboard-notifications" ]]; then
+    # Clone the Exact-Ti dashboard notifications plugin
+    if [[ $plugin == "exactti-dashboard-notifications" ]]; then
       git clone --depth 1 --branch ${WAZUH_DASHBOARD_NOTIFICATIONS_BRANCH} https://github.com/wazuh/$plugin.git
     fi
-    # Clone the Wazuh dashboard alerting plugin
-    if [[ $plugin == "wazuh-dashboard-alerting" ]]; then
+    # Clone the Exact-Ti dashboard alerting plugin
+    if [[ $plugin == "exactti-dashboard-alerting" ]]; then
       git clone --depth 1 --branch ${WAZUH_DASHBOARD_ALERTING_BRANCH} https://github.com/wazuh/$plugin.git
     fi
-    # Clone the Wazuh dashboards plugins and move the plugins to the plugins folder
-    if [[ $plugin == "wazuh-dashboard-plugins" ]]; then
+    # Clone the Exact-Ti dashboards plugins and move the plugins to the plugins folder
+    if [[ $plugin == "exactti-dashboard-plugins" ]]; then
       git clone --depth 1 --branch ${WAZUH_DASHBOARD_PLUGINS_BRANCH} https://github.com/wazuh/$plugin.git
       wazuh_dashboard_plugins=$(ls $base_path_plugins/$plugin/plugins)
       mv $plugin/plugins/* ./
@@ -68,7 +68,7 @@ for plugin in $plugins; do
     fi
 
   fi
-  if [[ $plugin != "wazuh-dashboard-plugins" ]]; then
+  if [[ $plugin != "exactti-dashboard-plugins" ]]; then
     cd $base_path_plugins/$plugin
     yarn install
   fi

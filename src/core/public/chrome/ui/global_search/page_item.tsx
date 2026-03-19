@@ -29,7 +29,7 @@ export const GlobalSearchPageItem = ({ link, search, callback, renderBreadcrumbs
       </EuiHighlight>
     );
 
-    /* Wazuh BEGIN */
+    /* Exact-Ti BEGIN */
     if (
       link.category &&
       !link.parentNavLinkId &&
@@ -43,7 +43,7 @@ export const GlobalSearchPageItem = ({ link, search, callback, renderBreadcrumbs
         ),
       });
     }
-    /* Wazuh END */
+    /* Exact-Ti END */
 
     if (link.parentNavLinkId) {
       const parentNavLinkTitle = link.navGroup.navLinks.find(

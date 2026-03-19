@@ -266,9 +266,9 @@ export function searchNavigationLinks(
         const titleMatch = title && title.toLowerCase().includes(query.toLowerCase());
         const parentTitleMatch =
           parentNavLinkTitle && parentNavLinkTitle.toLowerCase().includes(query.toLowerCase());
-        /* Wazuh BEGIN */
+        /* Exact-Ti BEGIN */
         const categoryMatch = link.category?.label?.toLowerCase().includes(query.toLowerCase());
-        /* Wazuh END */
+        /* Exact-Ti END */
         return (
           !link.hidden &&
           !link.disabled &&

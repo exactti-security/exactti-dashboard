@@ -1,5 +1,5 @@
 /*
- * Copyright Wazuh
+ * Copyright Exact-Ti
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -142,7 +142,7 @@ export const HealthCheckNavButton = ({
   return (
     <I18nProvider>
       <div
-        // https://github.com/wazuh/wazuh-dashboard/pull/946#issuecomment-3381930040
+        // https://github.com/wazuh/exactti-dashboard/pull/946#issuecomment-3381930040
         role="button"
         tabIndex={0}
         onClick={switchPopover}

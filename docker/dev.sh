@@ -31,7 +31,7 @@ up)
     ;;
 down)
     echo "Cleaning up..."
-    $COMPOSE_CMD exec wazuh-dashboard yarn osd clean
+    $COMPOSE_CMD exec exactti-dashboard yarn osd clean
     $COMPOSE_CMD down
     ;;
 stop)

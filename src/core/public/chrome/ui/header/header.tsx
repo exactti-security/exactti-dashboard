@@ -134,7 +134,7 @@ export interface HeaderProps {
   globalBanner$?: Observable<ChromeGlobalBanner | undefined>;
   keyboardShortcut?: KeyboardShortcutStart;
   globalSearchCommands$: Observable<GlobalSearchCommand[]>;
-  darkmode: boolean; // Wazuh
+  darkmode: boolean; // Exact-Ti
 }
 
 const hasValue = (value: any) => {

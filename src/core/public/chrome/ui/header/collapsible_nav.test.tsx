@@ -120,7 +120,7 @@ function clickGroup(component: ReactWrapper, group: string) {
   component.find(`[data-test-subj="collapsibleNavGroup-${group}"] button`).simulate('click');
 }
 
-// Wazuh: Mock the getIsCategoryOpen function to return true by default.
+// Exact-Ti: Mock the getIsCategoryOpen function to return true by default.
 // This is because we change the default value of the getIsCategoryOpen function to false.
 // And all the tests fail because the getIsCategoryOpen function returns false on the first render.
 // That's why we mock it to return true by default.
@@ -183,7 +183,7 @@ describe('CollapsibleNav', () => {
     expect(component).toMatchSnapshot();
   });
 
-  // Wazuh dashboard change: The menu is collapsed at the beginning,
+  // Exact-Ti dashboard change: The menu is collapsed at the beginning,
   // that's why it changes to 0 at the beginning and when pressing the buttons it changes to 2 because it would be displaying the submenu.
   it('remembers collapsible section state', () => {
     const navLinks = [mockLink({ category: explore }), mockLink({ category: observability })];

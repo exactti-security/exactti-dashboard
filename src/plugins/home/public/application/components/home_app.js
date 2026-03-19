@@ -36,7 +36,7 @@ import { FeatureDirectory } from './feature_directory';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { getServices } from '../opensearch_dashboards_services';
 import { useMount } from 'react-use';
-// Wazuh
+// Exact-Ti
 // import { USE_NEW_HOME_PAGE } from '../../../common/constants';
 // import { HOME_PAGE_ID } from '../../../../content_management/public';
 import { HOME_PAGE_ID } from '../../../common/constants';
@@ -82,7 +82,7 @@ export function HomeApp({ directories, solutions }) {
             <FeatureDirectory addBasePath={addBasePath} directories={directories} />
           </Route>
           {/*
-          Wazuh: The check whether the new activated menu is enabled or not is removed,
+          Exact-Ti: The check whether the new activated menu is enabled or not is removed,
           since we remove the option to activate it until it is working correctly.
            {uiSettings.get(USE_NEW_HOME_PAGE) ? (
             <>

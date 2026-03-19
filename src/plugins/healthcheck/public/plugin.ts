@@ -1,5 +1,5 @@
 /*
- * Copyright Wazuh
+ * Copyright Exact-Ti
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -33,7 +33,7 @@ export class HealtcheckPlugin implements Plugin<HealtcheckPluginSetup, Healtchec
       },
     });
 
-    /* Wazuh BEGIN */
+    /* Exact-Ti BEGIN */
     // Register in the 'all' nav group under Dashboard management category
     core.chrome.navGroup.addNavLinksToGroup(DEFAULT_NAV_GROUPS.all, [
       {
@@ -42,7 +42,7 @@ export class HealtcheckPlugin implements Plugin<HealtcheckPluginSetup, Healtchec
         order: 10009,
       },
     ]);
-    /* Wazuh END */
+    /* Exact-Ti END */
 
     return {};
   }

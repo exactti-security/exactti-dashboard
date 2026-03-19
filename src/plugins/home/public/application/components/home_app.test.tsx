@@ -27,7 +27,7 @@ jest.mock('./tutorial_directory', () => ({
   ),
 }));
 
-// Wazuh: skip this because we remove the sampledata and the tutorial because sample data is needed
+// Exact-Ti: skip this because we remove the sampledata and the tutorial because sample data is needed
 
 describe.skip('<HomeApp />', () => {
   let currentService: ReturnType<typeof getMockedServices>;

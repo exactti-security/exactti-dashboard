@@ -55,8 +55,8 @@ export default function ({ getService, getPageObjects }: FtrProviderContext) {
       expect(url.includes('/app/wz-home')).to.be(true);
     });
 
-    // Wazuh: The home page of Wazuh is different from the OpenSearch Dashboards home page
-    // and the console app is not available on the Wazuh home page
+    // Exact-Ti: The home page of Exact-Ti is different from the OpenSearch Dashboards home page
+    // and the console app is not available on the Exact-Ti home page
     it.skip('clicking on console on homepage should take you to console app', async () => {
       await PageObjects.home.clickSynopsis('console');
       const url = await browser.getCurrentUrl();

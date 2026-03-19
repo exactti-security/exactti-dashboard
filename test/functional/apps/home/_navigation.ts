@@ -48,7 +48,7 @@ export default function ({ getService, getPageObjects }: FtrProviderContext) {
     });
 
     it('detect navigate back issues', async () => {
-      // Wazuh: Set a local storage item to show the nav group
+      // Exact-Ti: Set a local storage item to show the nav group
       // because the nav group is hidden by default in our fork
       await browser.setLocalStorageItem('core.navGroup.explore', 'true');
       let currUrl;

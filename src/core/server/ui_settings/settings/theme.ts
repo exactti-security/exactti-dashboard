@@ -69,9 +69,9 @@ export const getThemeSettings = (): Record<string, UiSettingsParams> => {
         defaultMessage: 'Theme version',
       }),
       value:
-        /* Wazuh BEGIN */
+        /* Exact-Ti BEGIN */
         DEFAULT_THEME_VERSION === 'v9'
-          ? /* Wazuh END */
+          ? /* Exact-Ti END */
             themeVersionLabelMap[DEFAULT_THEME_VERSION]
           : DEFAULT_THEME_VERSION,
       type: 'select',

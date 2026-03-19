@@ -10,7 +10,7 @@ import { ChromeRegistrationNavLink } from '../../nav_group';
 import { ChromeNavLink } from '../../nav_links';
 import * as navUtils from '../../utils';
 
-// Wazuh: Mock the getIsCategoryOpen function to return true by default.
+// Exact-Ti: Mock the getIsCategoryOpen function to return true by default.
 // This is because we change the default value of the getIsCategoryOpen function to false.
 // And all the tests fail because the getIsCategoryOpen function returns false on the first render.
 // That's why we mock it to return true by default.

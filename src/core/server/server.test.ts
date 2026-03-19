@@ -58,7 +58,7 @@ const env = Env.createDefault(REPO_ROOT, getEnvOptions());
 const logger = loggingSystemMock.create();
 const rawConfigService = rawConfigServiceMock.create({});
 
-// Wazuh: added to mock healthcheck config
+// Exact-Ti: added to mock healthcheck config
 const asDuration = (ms: number) => ({ asMilliseconds: () => ms });
 
 const healthCheckConfig = {

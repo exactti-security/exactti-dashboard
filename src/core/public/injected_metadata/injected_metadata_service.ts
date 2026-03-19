@@ -81,7 +81,7 @@ export interface InjectedMetadataParams {
     keyboardShortcuts: {
       enabled: boolean;
     };
-    // Wazuh
+    // Exact-Ti
     healthCheck: HealthCheckConfig;
   };
 }
@@ -165,17 +165,17 @@ export class InjectedMetadataService {
         return this.state.keyboardShortcuts;
       },
 
-      // Wazuh
-      getWazuhVersion: () => {
-        return this.state.wazuhVersion;
+      // Exact-Ti
+      getExact-TiVersion: () => {
+        return this.state.exacttiVersion;
       },
 
-      // Wazuh
-      getWazuhDocVersion: () => {
-        return this.state.wazuhVersion?.split('.').slice(0, 2).join('.') || 'current';
+      // Exact-Ti
+      getExact-TiDocVersion: () => {
+        return this.state.exacttiVersion?.split('.').slice(0, 2).join('.') || 'current';
       },
 
-      // Wazuh
+      // Exact-Ti
       getHealthCheck: () => {
         return this.state.healthCheck;
       },
@@ -217,9 +217,9 @@ export interface InjectedMetadataSetup {
   getKeyboardShortcuts: () => {
     enabled: boolean;
   };
-  // Wazuh
-  getWazuhVersion: () => string;
-  getWazuhDocVersion: () => string;
+  // Exact-Ti
+  getExact-TiVersion: () => string;
+  getExact-TiDocVersion: () => string;
   getHealthCheck: () => HealthCheckConfig;
 }
 

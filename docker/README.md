@@ -21,7 +21,7 @@ similar as possible.
 
    The more resources the better ☺
 
-2. Clone the [wazuh-dashboard][app-repo] and the [wazuh-security-dashboards-plugin][security-repo]
+2. Clone the [exactti-dashboard][app-repo] and the [wazuh-security-dashboards-plugin][security-repo]
    repositories at the same level.
 
 3. Set up user permissions
@@ -62,7 +62,7 @@ Example:
 Usage: ./dev.sh {up|down|stop} [security]
 ```
 
-Once the `wazuh-dashboard` container is up, attach a shell to it and run `yarn start --no-base-path`
+Once the `exactti-dashboard` container is up, attach a shell to it and run `yarn start --no-base-path`
 to start the application.
 
 The dependencies of the project will be installed automatically by the `installed` container,
@@ -71,5 +71,5 @@ even for the security plugin, if the security flag is provided.
 [docker-desktop]: https://docs.docker.com/get-docker
 [docker-variant]: https://docs.docker.com/desktop/install/linux-install/#differences-between-docker-desktop-for-linux-and-docker-engine
 [docker-context]: https://docs.docker.com/desktop/install/linux-install/#context
-[app-repo]: https://github.com/wazuh/wazuh-dashboard
+[app-repo]: https://github.com/wazuh/exactti-dashboard
 [security-repo]: https://github.com/wazuh/wazuh-security-dashboards-plugin

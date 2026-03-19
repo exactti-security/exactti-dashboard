@@ -76,7 +76,7 @@ export const SolutionTitle: FC<Props> = ({ subtitle, branding, logos }) => (
           />
         </div>
       ) : (
-        // Wazuh logo in the overview card
+        // Exact-Ti logo in the overview card
         <EuiToken
           iconType="/ui/favicons/safari-pinned-tab.svg"
           shape="circle"

@@ -3,11 +3,11 @@
 # Package name
 PACKAGE=""
 # Container name
-CONTAINER_NAME="wazuh-dashboard"
+CONTAINER_NAME="exactti-dashboard"
 # Files to check
-FILES="/etc/wazuh-dashboard/opensearch_dashboards.yml /usr/share/wazuh-dashboard"
+FILES="/etc/exactti-dashboard/opensearch_dashboards.yml /usr/share/exactti-dashboard"
 # Owner of the files
-FILE_OWNER="wazuh-dashboard"
+FILE_OWNER="exactti-dashboard"
 
 # Remove container and image
 clean() {
@@ -29,7 +29,7 @@ clean() {
   docker rmi -f $CONTAINER_NAME
 }
 
-# Check if files exist and are owned by wazuh-dashboard
+# Check if files exist and are owned by exactti-dashboard
 files_exist() {
   for FILE in $FILES; do
     if docker exec $CONTAINER_NAME ls $FILE >/dev/null 2>&1; then
@@ -52,7 +52,7 @@ files_exist() {
 check_opensearch_dashboard_yml() {
   docker cp ../../config/opensearch_dashboards.prod.yml $CONTAINER_NAME:/tmp/opensearch_dashboards.yml
 
-  diff_opensearch_dashboard_yml=$(docker exec $CONTAINER_NAME diff /etc/wazuh-dashboard/opensearch_dashboards.yml /tmp/opensearch_dashboards.yml)
+  diff_opensearch_dashboard_yml=$(docker exec $CONTAINER_NAME diff /etc/exactti-dashboard/opensearch_dashboards.yml /tmp/opensearch_dashboards.yml)
 
   if [ -n "$diff_opensearch_dashboard_yml" ]; then
     echo "ERROR: opensearch_dashboards.yml is not the same as the one in the package"
@@ -60,7 +60,7 @@ check_opensearch_dashboard_yml() {
     clean
     exit 1
   fi
-  echo $(docker exec $CONTAINER_NAME diff /etc/wazuh-dashboard/opensearch_dashboards.yml /tmp/opensearch_dashboards.yml)
+  echo $(docker exec $CONTAINER_NAME diff /etc/exactti-dashboard/opensearch_dashboards.yml /tmp/opensearch_dashboards.yml)
   echo "opensearch_dashboards.yml is the same as the one in the package"
 }
 
@@ -68,9 +68,9 @@ check_opensearch_dashboard_yml() {
 check_metadata_deb() {
 
   IFS='_' read -r -a arrayNameFile <<< "$PACKAGE"
-  metadataVersion=$(docker exec $CONTAINER_NAME apt show wazuh-dashboard | grep Version | awk '{print $2}')
-  metadataPackage=$(docker exec $CONTAINER_NAME apt show wazuh-dashboard | grep Package | awk '{print $2}')
-  metadataStatus=$(docker exec $CONTAINER_NAME apt show wazuh-dashboard | grep Status)
+  metadataVersion=$(docker exec $CONTAINER_NAME apt show exactti-dashboard | grep Version | awk '{print $2}')
+  metadataPackage=$(docker exec $CONTAINER_NAME apt show exactti-dashboard | grep Package | awk '{print $2}')
+  metadataStatus=$(docker exec $CONTAINER_NAME apt show exactti-dashboard | grep Status)
 
   # Check if metadata is correct
   if [ "${arrayNameFile[1]}" != "$metadataVersion" ]; then
@@ -98,8 +98,8 @@ check_metadata_deb() {
 }
 
 check_metadata_rpm() {
-  metadataVersion=$(docker exec $CONTAINER_NAME rpm -q --qf '%{VERSION}-%{RELEASE}' wazuh-dashboard)
-  metadataPackage=$(docker exec $CONTAINER_NAME rpm -q --qf '%{NAME}' wazuh-dashboard)
+  metadataVersion=$(docker exec $CONTAINER_NAME rpm -q --qf '%{VERSION}-%{RELEASE}' exactti-dashboard)
+  metadataPackage=$(docker exec $CONTAINER_NAME rpm -q --qf '%{NAME}' exactti-dashboard)
 
   # Check if metadata is correct
   if [[ $PACKAGE != *"$metadataVersion"* ]]; then
@@ -146,7 +146,7 @@ help() {
   echo
   echo "Usage: $0 [OPTIONS]"
   echo
-  echo "    -p, --package <path>       Set Wazuh Dashboard rpm package name,which has to be in the <repository>/dev-tools/test-packages/<DISTRIBUTION>/ folder."
+  echo "    -p, --package <path>       Set Exact-Ti Security Platform rpm package name,which has to be in the <repository>/dev-tools/test-packages/<DISTRIBUTION>/ folder."
   echo
   exit $1
 }

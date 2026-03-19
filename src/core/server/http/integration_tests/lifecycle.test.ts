@@ -50,7 +50,7 @@ const contextSetup = contextServiceMock.createSetupContract();
 
 const setupDeps = {
   context: contextSetup,
-  // Wazuh
+  // Exact-Ti
   enhanceNotReadyServer: (_server: Server, _basePath: BasePath) => {},
 };
 

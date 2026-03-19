@@ -25,7 +25,7 @@ const THEME_VERSION_VALUE_MAP = {
 const THEME_VERSIONS = Object.keys(THEME_VERSION_LABEL_MAP);
 const THEME_TAGS = THEME_VERSIONS.flatMap((v) => THEME_MODES.map((m) => `${v}${m}`));
 
-/* Wazuh BEGIN: allow V9 as default theme */
+/* Exact-Ti BEGIN: allow V9 as default theme */
 
 // Setup theme options to be backwards compatible with the fact that v8 and v9 were persisted with their
 // label rather than with the correct themeVersion value
@@ -37,7 +37,7 @@ const THEME_OPTIONS = THEME_VERSIONS.map((v) =>
   v !== 'v8' && v !== 'v9' ? v : THEME_VERSION_LABEL_MAP[v]
 );
 
-/* Wazuh END: allow V9 as default theme */
+/* Exact-Ti END: allow V9 as default theme */
 
 exports.themeVersionLabelMap = THEME_VERSION_LABEL_MAP;
 

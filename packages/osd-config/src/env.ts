@@ -162,7 +162,7 @@ export class Env {
         : 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
       version: pkg.version,
       dist: isOpenSearchDashboardsDistributable,
-      wazuhVersion: pkg.wazuh.version,
+      wazuhVersion: pkg.exactti.version,
     });
   }
 }

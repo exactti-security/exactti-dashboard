@@ -1,5 +1,5 @@
 /*
- * Copyright Wazuh
+ * Copyright Exact-Ti
  * SPDX-License-Identifier: Apache-2.0
  */
 import React from 'react';

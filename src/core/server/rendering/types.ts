@@ -37,7 +37,7 @@ import { InternalHttpServiceSetup, OpenSearchDashboardsRequest, LegacyRequest } 
 import { UiPlugins, DiscoveredPlugin } from '../plugins';
 import { IUiSettingsClient, UserProvidedValues } from '../ui_settings';
 import type { InternalStatusServiceSetup } from '../status';
-// Wazuh
+// Exact-Ti
 import { HealthCheckConfig } from '../healthcheck';
 
 /** @internal */
@@ -82,7 +82,7 @@ export interface RenderingMetadata {
     keyboardShortcuts: {
       enabled: boolean;
     };
-    // Wazuh
+    // Exact-Ti
     healthCheck: HealthCheckConfig;
   };
 }
@@ -93,7 +93,7 @@ export interface RenderingSetupDeps {
   status: InternalStatusServiceSetup;
   uiPlugins: UiPlugins;
   dynamicConfig: InternalDynamicConfigServiceSetup;
-  // Wazuh
+  // Exact-Ti
   healthCheck: {
     getConfig: () => HealthCheckConfig;
   };

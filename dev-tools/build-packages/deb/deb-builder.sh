@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Wazuh package builder
-# Copyright (C) 2021, Wazuh Inc.
+# Exact-Ti package builder
+# Copyright (C) 2021, Exact-Ti Inc.
 #
 # This program is a free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public
@@ -11,7 +11,7 @@
 set -e
 
 # Script parameters to build the package
-target="wazuh-dashboard"
+target="exactti-dashboard"
 version=$1
 revision=$2
 architecture=$3
@@ -19,7 +19,7 @@ commit_sha=$4
 is_production=$5
 verbose=$6
 
-directory_base="/usr/share/wazuh-dashboard"
+directory_base="/usr/share/exactti-dashboard"
 
 # Paths
 current_path="$( cd $(dirname $0) ; pwd -P )"
@@ -28,8 +28,8 @@ current_path="$( cd $(dirname $0) ; pwd -P )"
 tmp_dir="/tmp"
 out_dir="/output"
 config_path="${tmp_dir}/config"
-workspace_dir="${tmp_dir}/wazuh-dashboard-base"
-workspace_tar="${tmp_dir}/wazuh-dashboard.tar.gz"
+workspace_dir="${tmp_dir}/exactti-dashboard-base"
+workspace_tar="${tmp_dir}/exactti-dashboard.tar.gz"
 
 if [ "$verbose" = "debug" ]; then
       set -x
@@ -57,14 +57,14 @@ rm -rf "${workspace_dir}" "${workspace_tar}"
 mkdir -p "${workspace_dir}"
 cd "${workspace_dir}"
 log "Extracting base tar.gz..."
-tar -zxf "${out_dir}/wazuh-dashboard-$version-$revision-linux-$architecture.tar.gz"
+tar -zxf "${out_dir}/exactti-dashboard-$version-$revision-linux-$architecture.tar.gz"
 log "Preparing the package..."
-jq '.wazuh.revision="'${revision}'"' package.json > pkgtmp.json && mv pkgtmp.json package.json
+jq '.exactti.revision="'${revision}'"' package.json > pkgtmp.json && mv pkgtmp.json package.json
 cp "${config_path}"/* .
 jq '.version="'${version}'"' VERSION.json > VERSION.tmp && mv VERSION.tmp VERSION.json
 jq '.commit="'${commit_sha}'"' VERSION.json > VERSION.tmp && mv VERSION.tmp VERSION.json
 cd "${tmp_dir}"
-tar -czf "${workspace_tar}" wazuh-dashboard-base
+tar -czf "${workspace_tar}" exactti-dashboard-base
 
 log "Setting up parameters"
 if [ "${architecture}" = "x64" ]; then

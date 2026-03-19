@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Wazuh Security Dashboards Plugin repository bumper (Pure Shell Version)
+# Exact-Ti Security Dashboards Plugin repository bumper (Pure Shell Version)
 # This script automates version and stage bumping across the repository using only shell commands.
 
 set -e
@@ -22,7 +22,7 @@ DOCKERFILE_FOR_BASE_PACKAGES="${REPO_PATH}/dev-tools/build-packages/base-package
 README_FOR_BASE_PACKAGES="${REPO_PATH}/dev-tools/build-packages/base-packages-to-base/README.md"
 VERSION_PATTERN="[0-9]+\.[0-9]+\.[0-9]+"
 DATE_PATTERN="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-RPM_CHANGELOG="${REPO_PATH}/dev-tools/build-packages/rpm/wazuh-dashboard.spec"
+RPM_CHANGELOG="${REPO_PATH}/dev-tools/build-packages/rpm/exactti-dashboard.spec"
 DEB_CHANGELOG="${REPO_PATH}/dev-tools/build-packages/deb/debian/changelog"
 
 # --- Helper Functions ---
@@ -376,7 +376,7 @@ update_changelog() {
   # Note: Using printf for better handling of newlines and potential special characters
   # Use the calculated REVISION variable here
   # Prepare the header to search for
-  local changelog_header="## Wazuh dashboard v${VERSION} - OpenSearch Dashboards ${OPENSEARCH_VERSION} - Revision "
+  local changelog_header="## Exact-Ti dashboard v${VERSION} - OpenSearch Dashboards ${OPENSEARCH_VERSION} - Revision "
   local changelog_header_regex="^${changelog_header}[0-9]+"
 
   # Check if an entry for this version and OpenSearch version already exists
@@ -396,7 +396,7 @@ update_changelog() {
    # Create the new entry directly in the changelog using sed
     local temp_file=$(mktemp)
     head -n 4 "$changelog_file" >"$temp_file"
-    printf "## Wazuh dashboard v%s - OpenSearch Dashboards %s - Revision %s\n\n### Added\n\n- Support for Wazuh %s\n\n" "$VERSION" "$OPENSEARCH_VERSION" "$REVISION" "$VERSION" >>"$temp_file"
+    printf "## Exact-Ti dashboard v%s - OpenSearch Dashboards %s - Revision %s\n\n### Added\n\n- Support for Exact-Ti %s\n\n" "$VERSION" "$OPENSEARCH_VERSION" "$REVISION" "$VERSION" >>"$temp_file"
     tail -n +5 "$changelog_file" >>"$temp_file"
 
     mv "$temp_file" "$changelog_file" || {
@@ -569,7 +569,7 @@ update_healthcheck_server_not_ready_troubleshooting_link() {
     if [[ "$current_version_minor" != "$version_minor" ]]; then
       # Update all occurrences of ("wazuhVersion": "x.y.z",) with ("wazuhVersion": "$VERSION",)
       # Define the pattern regex
-      local pattern_regex="(https://documentation.wazuh.com/)$current_version_minor"
+      local pattern_regex="(https://documentation.exactti.com/)$current_version_minor"
       # Check if the pattern exists in the file
       if grep -qE "$pattern_regex" "$file"; then
         log "Pattern '$pattern_regex' found in $(basename $file). Attempting update..."
@@ -690,7 +690,7 @@ update_rpm_changelog() {
 
   local rpm_date=$(convert_date_to_rpm_format "$DATE")
   local changelog_entry="* $rpm_date support <info@wazuh.com> - $VERSION"
-  local more_info_entry="- More info: https://documentation.wazuh.com/current/release-notes/release-$(echo $VERSION | tr '.' '-').html"
+  local more_info_entry="- More info: https://documentation.exactti.com/current/release-notes/release-$(echo $VERSION | tr '.' '-').html"
 
   # Check if entry already exists
   if grep -q "* .* support <info@wazuh.com> - $VERSION" "$RPM_CHANGELOG"; then
@@ -725,19 +725,19 @@ update_deb_changelog() {
 
   local deb_date=$(convert_date_to_deb_format "$DATE")
   local package_version="$VERSION-RELEASE"
-  local changelog_header="wazuh-dashboard ($package_version) stable; urgency=low"
-  local more_info_entry="  * More info: https://documentation.wazuh.com/current/release-notes/release-$(echo $VERSION | tr '.' '-').html"
-  local maintainer_line=" -- Wazuh, Inc <info@wazuh.com>  $deb_date"
+  local changelog_header="exactti-dashboard ($package_version) stable; urgency=low"
+  local more_info_entry="  * More info: https://documentation.exactti.com/current/release-notes/release-$(echo $VERSION | tr '.' '-').html"
+  local maintainer_line=" -- Exact-Ti, Inc <info@wazuh.com>  $deb_date"
 
   # Escape parentheses and dots for grep and sed patterns
   local escaped_package_version=$(echo "$package_version" | sed 's/[().]/\\&/g')
 
   # Check if entry already exists
-  if grep -q "wazuh-dashboard ($package_version)" "$DEB_CHANGELOG"; then
+  if grep -q "exactti-dashboard ($package_version)" "$DEB_CHANGELOG"; then
     log "Debian changelog entry for version $VERSION already exists. Updating date..."
     # Update existing entry date
     # Find the line with the version and then find the next maintainer line to update
-    sed -i "/wazuh-dashboard ($escaped_package_version)/,/^ *-- Wazuh, Inc/ s|^ *-- Wazuh, Inc <info@wazuh.com> .*|$maintainer_line|" "$DEB_CHANGELOG"
+    sed -i "/exactti-dashboard ($escaped_package_version)/,/^ *-- Exact-Ti, Inc/ s|^ *-- Exact-Ti, Inc <info@wazuh.com> .*|$maintainer_line|" "$DEB_CHANGELOG"
     log "Successfully updated Debian changelog date for version $VERSION"
   else
     log "Adding new Debian changelog entry for version $VERSION..."

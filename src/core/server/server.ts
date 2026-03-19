@@ -74,7 +74,7 @@ import { CoreUsageDataService } from './core_usage_data';
 import { CoreRouteHandlerContext } from './core_route_handler_context';
 import { DynamicConfigService } from './config/dynamic_config_service';
 import { WorkspaceService } from './workspace/workspace_service';
-// Wazuh
+// Exact-Ti
 import { config as healthCheckConfig, HealthCheckService } from './healthcheck';
 
 const coreId = Symbol('core');
@@ -104,7 +104,7 @@ export class Server {
   private readonly coreUsageData: CoreUsageDataService;
   private readonly security: SecurityService;
   private readonly crossCompatibility: CrossCompatibilityService;
-  // Wazuh
+  // Exact-Ti
   private readonly healthCheck: HealthCheckService;
 
   #pluginsInitialized?: boolean;
@@ -150,7 +150,7 @@ export class Server {
     this.coreUsageData = new CoreUsageDataService(core);
     this.security = new SecurityService(core);
     this.crossCompatibility = new CrossCompatibilityService(core);
-    // Wazuh
+    // Exact-Ti
     this.healthCheck = new HealthCheckService(core);
   }
 
@@ -190,7 +190,7 @@ export class Server {
 
     const httpSetup = await this.http.setup({
       context: contextServiceSetup,
-      // Wazuh
+      // Exact-Ti
       enhanceNotReadyServer: (server, basePath) =>
         this.healthCheck.enhanceNotReadyServer(server, basePath),
     });
@@ -226,7 +226,7 @@ export class Server {
       metrics: metricsSetup,
     });
 
-    // Wazuh
+    // Exact-Ti
     const healthCheckSetup = await this.healthCheck.setup({
       http: httpSetup,
       httpService: this.http,
@@ -237,7 +237,7 @@ export class Server {
       status: statusSetup,
       uiPlugins,
       dynamicConfig: dynamicConfigServiceSetup,
-      // Wazuh
+      // Exact-Ti
       healthCheck: {
         getConfig: () => this.healthCheck.healthCheck.getConfig(),
       },
@@ -273,7 +273,7 @@ export class Server {
       security: securitySetup,
       dynamicConfig: dynamicConfigServiceSetup,
       workspace: workspaceSetup,
-      // Wazuh
+      // Exact-Ti
       healthCheck: healthCheckSetup,
     };
 
@@ -326,7 +326,7 @@ export class Server {
       plugins: this.openSearchPluginDeps,
     });
 
-    // Wazuh
+    // Exact-Ti
     const healthCheckStart = await this.healthCheck.start({
       capabilities: capabilitiesStart,
       opensearch: opensearchStart,
@@ -352,7 +352,7 @@ export class Server {
       crossCompatibility: crossCompatibilityServiceStart,
       dynamicConfig: dynamicConfigServiceStart,
       workspace: workspaceStart,
-      // Wazuh
+      // Exact-Ti
       healthCheck: healthCheckStart,
     };
 
@@ -379,7 +379,7 @@ export class Server {
 
     await this.legacy.stop();
     await this.plugins.stop();
-    // Wazuh
+    // Exact-Ti
     await this.healthCheck.stop();
     await this.savedObjects.stop();
     await this.opensearch.stop();
@@ -422,7 +422,7 @@ export class Server {
       statusConfig,
       pidConfig,
       dynamicConfigServiceConfig,
-      // Wazuh
+      // Exact-Ti
       healthCheckConfig,
     ];
 

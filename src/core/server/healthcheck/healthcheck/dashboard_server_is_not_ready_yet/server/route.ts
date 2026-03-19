@@ -1,5 +1,5 @@
 /*
- * Copyright Wazuh
+ * Copyright Exact-Ti
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -21,7 +21,7 @@ export const configureDashboardServerIsNotReadyRoutes = (
     serverBasePath = '',
   }: { getTroubleshootingLink: () => string; serverBasePath: string }
 ) => {
-  const appName = 'Wazuh dashboard';
+  const appName = 'Exact-Ti dashboard';
 
   server.route({
     path: '/{p*}',
@@ -35,7 +35,7 @@ export const configureDashboardServerIsNotReadyRoutes = (
       // If server is not ready yet, because plugins or core can perform
       // long running tasks (build assets, saved objects migrations etc.)
       // we should let client know that and ask to retry after 30 seconds.
-      // Wazuh
+      // Exact-Ti
       return h.response(html).type('text/html').code(503).header('Retry-After', '30').takeover();
     },
   });

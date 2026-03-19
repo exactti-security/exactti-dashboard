@@ -1,5 +1,5 @@
 /*
- * Copyright Wazuh
+ * Copyright Exact-Ti
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -7,8 +7,8 @@ import { i18n } from '@osd/i18n';
 
 import wazuh from '../../../../package.json';
 
-export const WAZUH_MAJOR = wazuh.wazuh.version.split('.')[0];
-export const WAZUH_MINOR = wazuh.wazuh.version.split('.')[1];
+export const WAZUH_MAJOR = wazuh.exactti.version.split('.')[0];
+export const WAZUH_MINOR = wazuh.exactti.version.split('.')[1];
 
 export const TASK = {
   RUN_STATUS: {

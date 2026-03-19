@@ -44,7 +44,7 @@ export function HeaderPageProvider({ getService, getPageObjects }: FtrProviderCo
 
   class HeaderPage {
     public async clickDiscover() {
-      // Wazuh: Set a local storage item to show the nav group
+      // Exact-Ti: Set a local storage item to show the nav group
       // because the nav group is hidden by default in our fork
       await browser.setLocalStorageItem('core.navGroup.explore', 'true');
       await appsMenu.clickLink('Discover', { category: 'explore' });
@@ -53,7 +53,7 @@ export function HeaderPageProvider({ getService, getPageObjects }: FtrProviderCo
     }
 
     public async clickVisualize() {
-      // Wazuh: Set a local storage item to show the nav group
+      // Exact-Ti: Set a local storage item to show the nav group
       // because the nav group is hidden by default in our fork
       await browser.setLocalStorageItem('core.navGroup.explore', 'true');
       await appsMenu.clickLink('Visualize', { category: 'explore' });
@@ -70,7 +70,7 @@ export function HeaderPageProvider({ getService, getPageObjects }: FtrProviderCo
     }
 
     public async clickDashboard() {
-      // Wazuh: Set a local storage item to show the nav group
+      // Exact-Ti: Set a local storage item to show the nav group
       // because the nav group is hidden by default in our fork
       await browser.setLocalStorageItem('core.navGroup.explore', 'true');
       await appsMenu.clickLink('Dashboard', { category: 'explore' });
@@ -83,7 +83,7 @@ export function HeaderPageProvider({ getService, getPageObjects }: FtrProviderCo
     }
 
     public async clickStackManagement() {
-      // Wazuh: Set a local storage item to show the nav group
+      // Exact-Ti: Set a local storage item to show the nav group
       // because the nav group is hidden by default in our fork
       await browser.setLocalStorageItem('core.navGroup.wz-category-dashboard-management', 'true');
       await appsMenu.clickLink('Dashboards Management', {

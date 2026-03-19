@@ -47,9 +47,9 @@ const createSetupContractMock = () => {
     getBranding: jest.fn(),
     getSurvey: jest.fn(),
     getKeyboardShortcuts: jest.fn(),
-    getWazuhVersion: jest.fn(),
-    getWazuhDocVersion: jest.fn(),
-    // Wazuh
+    getExact-TiVersion: jest.fn(),
+    getExact-TiDocVersion: jest.fn(),
+    // Exact-Ti
     getHealthCheck: jest.fn(),
   };
   setupContract.getCspConfig.mockReturnValue({ warnLegacyBrowsers: true });
@@ -68,8 +68,8 @@ const createSetupContractMock = () => {
   } as any);
   setupContract.getPlugins.mockReturnValue([]);
   setupContract.getKeyboardShortcuts.mockReturnValue({ enabled: true });
-  setupContract.getWazuhVersion.mockReturnValue('4.x.x');
-  setupContract.getWazuhDocVersion.mockReturnValue('4.x');
+  setupContract.getExact-TiVersion.mockReturnValue('4.x.x');
+  setupContract.getExact-TiDocVersion.mockReturnValue('4.x');
   return setupContract;
 };
 

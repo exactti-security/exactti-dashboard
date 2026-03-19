@@ -1,10 +1,10 @@
 # Health Check Plugin
 
-A Wazuh dashboard plugin for monitoring system health.
+A Exact-Ti dashboard plugin for monitoring system health.
 
 ## Description
 
-The Health Check Plugin provides a visual interface for monitoring the health status of various Wazuh system components. It allows administrators to quickly identify issues and verify that all services are functioning correctly.
+The Health Check Plugin provides a visual interface for monitoring the health status of various Exact-Ti system components. It allows administrators to quickly identify issues and verify that all services are functioning correctly.
 
 ## Features
 
@@ -27,20 +27,20 @@ The Health Check Plugin provides a visual interface for monitoring the health st
 
 ## Installation
 
-This plugin comes included with Wazuh dashboard. To access:
+This plugin comes included with Exact-Ti dashboard. To access:
 
-1. Log in to Wazuh dashboard
+1. Log in to Exact-Ti dashboard
 2. Navigate to **Dashboard Management** > **Health check**
 
 ## Support
 
-- 📖 [Official Wazuh documentation](https://documentation.wazuh.com/)
+- 📖 [Official Exact-Ti documentation](https://documentation.exactti.com/)
 - 💬 [Community forums](https://wazuh.com/community/)
-- 🐛 [Report issues](https://github.com/wazuh/wazuh-dashboard/issues)
+- 🐛 [Report issues](https://github.com/wazuh/exactti-dashboard/issues)
 
 ## License
 
-Copyright Wazuh  
+Copyright Exact-Ti  
 SPDX-License-Identifier: Apache-2.0
 
 ---

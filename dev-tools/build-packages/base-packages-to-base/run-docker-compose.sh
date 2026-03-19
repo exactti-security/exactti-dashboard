@@ -27,11 +27,11 @@ run_docker_compose() {
 help() {
   echo
   echo "Usage: $0 [OPTIONS]"
-  echo "    -a, --app <url/path>          Set the Wazuh plugin branch."
-  echo "    -b, --base <url/path>         Set the wazuh-dashboard branch."
+  echo "    -a, --app <url/path>          Set the Exact-Ti plugin branch."
+  echo "    -b, --base <url/path>         Set the exactti-dashboard branch."
   echo "    -s, --security <url/path>     Set the wazuh-security-dashboards-plugin branch."
-  echo "    -sa, --securityAnalytics <url/path>   Set the wazuh-dashboard-security-analytics branch."
-  echo "    -r, --reporting <url/path>    Set the wazuh-dashboard-reporting branch."
+  echo "    -sa, --securityAnalytics <url/path>   Set the exactti-dashboard-security-analytics branch."
+  echo "    -r, --reporting <url/path>    Set the exactti-dashboard-reporting branch."
   echo "    --arm                         [Optional] Build for arm64 instead of x64."
   echo "    --node-version <version>      [Optional] Set the node version."
   echo "    -h, --help                    Show this help."

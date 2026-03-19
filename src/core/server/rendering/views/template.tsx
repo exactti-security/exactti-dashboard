@@ -178,8 +178,8 @@ export const Template: FunctionComponent<Props> = ({
               })}
             >
               {i18n('core.ui.welcomeMessage', {
-                // Wazuh: change the default message to avoid
-                // showing the "Loading Wazuh" message twice.
+                // Exact-Ti: change the default message to avoid
+                // showing the "Loading Exact-Ti" message twice.
                 defaultMessage: 'Loading ...',
               })}
             </div>

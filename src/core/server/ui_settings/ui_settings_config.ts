@@ -38,9 +38,9 @@ const deprecations: ConfigDeprecationProvider = ({ unused, renameFromRoot }) => 
   renameFromRoot('server.defaultRoute', 'uiSettings.overrides.defaultRoute'),
 ];
 
-/* Wazuh BEGIN */
+/* Exact-Ti BEGIN */
 export const DEFAULT_THEME_VERSION = 'v9';
-/* Wazuh END */
+/* Exact-Ti END */
 
 /* There are 4 levels of uiSettings:
  *   1) defaults hardcoded in code

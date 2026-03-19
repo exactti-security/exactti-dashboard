@@ -54,7 +54,7 @@ import { securityServiceMock } from './security/security_service.mock';
 import { crossCompatibilityServiceMock } from './cross_compatibility/cross_compatibility.mock';
 import { dynamicConfigServiceMock } from './config/dynamic_config_service.mock';
 import { workspaceServiceMock } from './workspace/mocks';
-// Wazuh
+// Exact-Ti
 import { healthCheckServiceMock } from './healthcheck/healthcheck/service.mock';
 
 export { configServiceMock } from './config/mocks';

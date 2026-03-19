@@ -344,9 +344,9 @@ export class DiscoverPlugin
     core.chrome.navGroup.addNavLinksToGroup(DEFAULT_NAV_GROUPS.all, [
       {
         id: PLUGIN_ID,
-        /* Wazuh BEGIN */
+        /* Exact-Ti BEGIN */
         category: DEFAULT_APP_CATEGORIES.explore,
-        /* Wazuh END */
+        /* Exact-Ti END */
         order: 200,
       },
     ]);

@@ -59,7 +59,7 @@ import { registerCoreHandlers } from './lifecycle_handlers';
 
 export interface SetupDeps {
   context: ContextSetup;
-  // Wazuh
+  // Exact-Ti
   enhanceNotReadyServer?: (server: Server, basePath: BasePath) => void;
 }
 
@@ -112,7 +112,7 @@ export class HttpService
     const config = await this.config$.pipe(first()).toPromise();
 
     if (this.shouldListen(config)) {
-      // Wazuh: inject dependencies
+      // Exact-Ti: inject dependencies
       await this.runNotReadyServer(config, deps);
     }
 
@@ -196,29 +196,29 @@ export class HttpService
     await this.httpsRedirectServer.stop();
   }
 
-  // Wazuh: inject dependencies
+  // Exact-Ti: inject dependencies
   private async runNotReadyServer(config: HttpConfig, deps: any) {
     this.log.debug('starting NotReady server');
     const httpServer = new HttpServer(this.logger, 'NotReady');
     const { server, basePath } = await httpServer.setup(config);
     this.notReadyServer = server;
 
-    // Wazuh: decorate server
+    // Exact-Ti: decorate server
     deps.enhanceNotReadyServer?.(server, basePath);
     // use hapi server while OpenSearchDashboardsResponseFactory doesn't allow specifying custom headers
     // https://github.com/elastic/kibana/issues/33779
-    // Wazuh: comment
+    // Exact-Ti: comment
     // this.notReadyServer.route({
     //   path: '/{p*}',
     //   method: '*',
     //   handler: (req, responseToolkit) => {
-    //     this.log.debug(`Wazuh dashboard server is not ready yet ${req.method}:${req.url.href}.`);
+    //     this.log.debug(`Exact-Ti dashboard server is not ready yet ${req.method}:${req.url.href}.`);
 
     //     // If server is not ready yet, because plugins or core can perform
     //     // long running tasks (build assets, saved objects migrations etc.)
     //     // we should let client know that and ask to retry after 30 seconds.
     //     return responseToolkit
-    //       .response('Wazuh dashboard server is not ready yet')
+    //       .response('Exact-Ti dashboard server is not ready yet')
     //       .code(503)
     //       .header('Retry-After', '30');
     //   },

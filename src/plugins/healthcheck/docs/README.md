@@ -1,6 +1,6 @@
 # Health Check Plugin Documentation
 
-Welcome to the complete documentation for the Wazuh dashboard Health Check plugin. This documentation is organized by audience and use type.
+Welcome to the complete documentation for the Exact-Ti dashboard Health Check plugin. This documentation is organized by audience and use type.
 
 ## 📚 Documentation Index
 
@@ -34,7 +34,7 @@ Welcome to the complete documentation for the Wazuh dashboard Health Check plugi
 
 ### For Users
 
-1. Access Wazuh dashboard
+1. Access Exact-Ti dashboard
 2. Navigate to **Dashboard Management > Health check**
 3. Consult the [User Guide](./USER_GUIDE.md) for details
 
@@ -79,7 +79,7 @@ When reporting an issue, include:
 
 1. **Detailed description** of the problem
 2. **Steps to reproduce** the error
-3. **Wazuh dashboard version**
+3. **Exact-Ti dashboard version**
 4. **Relevant logs** (if available)
 5. **Screenshots** (if applicable)
 
@@ -94,8 +94,8 @@ When reporting an issue, include:
 ### Official Resources
 
 - 🌐 **Website**: [wazuh.com](https://wazuh.com)
-- 📖 **Documentation**: [documentation.wazuh.com](https://documentation.wazuh.com)
-- 💻 **GitHub**: [github.com/wazuh/wazuh-dashboard](https://github.com/wazuh/wazuh-dashboard)
+- 📖 **Documentation**: [documentation.exactti.com](https://documentation.exactti.com)
+- 💻 **GitHub**: [github.com/wazuh/exactti-dashboard](https://github.com/wazuh/exactti-dashboard)
 
 **Found something not covered in this documentation?**  
 Please open an issue on GitHub or contribute with documentation improvements.

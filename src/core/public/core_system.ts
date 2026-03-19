@@ -59,7 +59,7 @@ import { WorkspacesService } from './workspace';
 import { KeyboardShortcutService } from './keyboard_shortcut';
 import { ChatService } from './chat';
 import { TelemetryCoreService } from './telemetry';
-// Wazuh
+// Exact-Ti
 import { HealthcheckService } from './healthcheck';
 
 interface Params {
@@ -114,7 +114,7 @@ export class CoreSystem {
   private readonly integrations: IntegrationsService;
   private readonly coreApp: CoreApp;
   private readonly keyboardShortcut: KeyboardShortcutService;
-  // Wazuh
+  // Exact-Ti
   private readonly healthCheck: HealthcheckService;
 
   private readonly rootDomElement: HTMLElement;
@@ -153,7 +153,7 @@ export class CoreSystem {
     this.workspaces = new WorkspacesService();
     this.chat = new ChatService();
     this.telemetry = new TelemetryCoreService();
-    // Wazuh
+    // Exact-Ti
     this.healthCheck = new HealthcheckService();
 
     this.coreContext = { coreId: Symbol('core'), env: injectedMetadata.env };
@@ -185,7 +185,7 @@ export class CoreSystem {
       const workspaces = this.workspaces.setup();
       const chat = this.chat.setup();
       const telemetry = this.telemetry.setup();
-      // Wazuh
+      // Exact-Ti
       const healthCheck = this.healthCheck.setup();
 
       const pluginDependencies = this.plugins.getOpaqueIds();
@@ -210,7 +210,7 @@ export class CoreSystem {
         keyboardShortcut,
         chat,
         telemetry,
-        // Wazuh
+        // Exact-Ti
         healthCheck,
       };
 
@@ -284,7 +284,7 @@ export class CoreSystem {
         keyboardShortcut,
       });
 
-      // Wazuh
+      // Exact-Ti
       const healthCheck = await this.healthCheck.start({
         chrome,
         uiSettings,
@@ -326,7 +326,7 @@ export class CoreSystem {
         keyboardShortcut: keyboardShortcut || undefined,
         chat,
         telemetry,
-        // Wazuh
+        // Exact-Ti
         healthCheck,
       };
 
@@ -371,7 +371,7 @@ export class CoreSystem {
 
   public stop() {
     this.plugins.stop();
-    // Wazuh
+    // Exact-Ti
     this.healthCheck.stop();
     this.coreApp.stop();
     this.notifications.stop();

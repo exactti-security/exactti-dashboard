@@ -91,10 +91,10 @@ export function getUiSettings(
       name: i18n.translate('data.advancedSettings.metaFieldsTitle', {
         defaultMessage: 'Meta fields',
       }),
-      // Wazuh
+      // Exact-Ti
       value: ['_source', '_index'],
       description: i18n.translate('data.advancedSettings.metaFieldsText', {
-        // Wazuh
+        // Exact-Ti
         defaultMessage:
           'Fields that exist outside of _source to merge into our document when displaying it. Other fields: _id, _score, _type',
       }),
@@ -570,7 +570,7 @@ export function getUiSettings(
       name: i18n.translate('data.advancedSettings.timepicker.timeDefaultsTitle', {
         defaultMessage: 'Time filter defaults',
       }),
-      // Wazuh
+      // Exact-Ti
       value: `{
   "from": "now-24h",
   "to": "now"

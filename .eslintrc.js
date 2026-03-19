@@ -39,11 +39,11 @@ const OSD_NEW_HEADER = `
 `;
 
 /**
- * For new files created by Wazuh Contributors
+ * For new files created by Exact-Ti Contributors
  */
 const OSD_WAZUH = `
 /*
- * Copyright Wazuh
+ * Copyright Exact-Ti
  * SPDX-License-Identifier: Apache-2.0
  */
 `;

@@ -67,7 +67,7 @@ export class RenderingService {
     status,
     uiPlugins,
     dynamicConfig,
-    // Wazuh
+    // Exact-Ti
     healthCheck,
   }: RenderingSetupDeps): Promise<InternalRenderingServiceSetup> {
     const [opensearchDashboardsConfig, serverConfig] = await Promise.all([
@@ -125,7 +125,7 @@ export class RenderingService {
             version: env.packageInfo.version,
             buildNumber: env.packageInfo.buildNum,
             branch: env.packageInfo.branch,
-            wazuhVersion: env.packageInfo.wazuhVersion,
+            wazuhVersion: env.packageInfo.exacttiVersion,
             basePath,
             serverBasePath,
             env,
@@ -175,7 +175,7 @@ export class RenderingService {
             keyboardShortcuts: {
               enabled: opensearchDashboardsConfig.keyboardShortcuts.enabled,
             },
-            // Wazuh
+            // Exact-Ti
             healthCheck: healthCheck.getConfig(),
           },
         };

@@ -1,7 +1,7 @@
 #!/bin/bash
 # ============================================================
 # Exact-Ti Security Platform — Script de Rebranding de Assets
-# Substitui logos e imagens Wazuh por Exact-Ti
+# Substitui logos e imagens Exact-Ti por Exact-Ti
 # ============================================================
 
 set -e
@@ -43,7 +43,7 @@ find "$DASHBOARD_PATH" -name "*.yml" -not -path "*/.git/*" \
 find /etc/systemd/system/ -name "wazuh*" 2>/dev/null | while read f; do
   newname=$(echo "$f" | sed 's/wazuh/exactti/g')
   cp "$f" "$newname"
-  sed -i 's/Wazuh/Exact-Ti/g; s/wazuh/exactti/g' "$newname"
+  sed -i 's/Exact-Ti/Exact-Ti/g; s/wazuh/exactti/g' "$newname"
   echo "✅ Serviço renomeado: $(basename $newname)"
 done
 

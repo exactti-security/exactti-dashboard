@@ -124,7 +124,7 @@ export default function ({ getService, getPageObjects }: FtrProviderContext) {
         expect(actualLabel.toUpperCase()).to.equal(expectedWelcomeMessage.toUpperCase());
       });
 
-      // Wazuh: This test is omitted because OpenSearch Dashboards does not have a home dashboard card.
+      // Exact-Ti: This test is omitted because OpenSearch Dashboards does not have a home dashboard card.
       it.skip('admin customized dark mode logo for home is applied', async () => {
         await PageObjects.common.navigateToApp('management/opensearch-dashboards/settings');
         await PageObjects.settings.toggleAdvancedSettingCheckbox('theme:darkMode');
@@ -139,7 +139,7 @@ export default function ({ getService, getPageObjects }: FtrProviderContext) {
         await PageObjects.settings.clearAdvancedSettings('theme:darkMode');
       });
 
-      // Wazuh: This test is omitted because OpenSearch Dashboards does not have a home dashboard card.
+      // Exact-Ti: This test is omitted because OpenSearch Dashboards does not have a home dashboard card.
       it.skip('if enable user control, admin customized dark mode logo for home is not applied', async () => {
         await PageObjects.common.navigateToApp('management/opensearch-dashboards/settings');
         await PageObjects.settings.toggleAdvancedSettingCheckbox('theme:enableUserControl');
@@ -195,7 +195,7 @@ export default function ({ getService, getPageObjects }: FtrProviderContext) {
           expect(url.includes('/app/wz-home')).to.be(true);
         });
 
-        // Wazuh: This test is omitted because OpenSearch Dashboards does not have a home dashboard card.
+        // Exact-Ti: This test is omitted because OpenSearch Dashboards does not have a home dashboard card.
         it.skip('with customized mark logo in home dashboard card', async () => {
           await testSubjects.existOrFail('dashboardCustomLogo');
           const actualLabel = await testSubjects.getAttribute(
@@ -205,7 +205,7 @@ export default function ({ getService, getPageObjects }: FtrProviderContext) {
           expect(actualLabel.toUpperCase()).to.equal(expectedMarkLogo.toUpperCase());
         });
 
-        // Wazuh: This test is omitted because OpenSearch Dashboards does not have a home dashboard card.
+        // Exact-Ti: This test is omitted because OpenSearch Dashboards does not have a home dashboard card.
         it.skip('with customized title in home dashboard card', async () => {
           await testSubjects.existOrFail('dashboardCustomTitle');
           const actualLabel = await testSubjects.getAttribute(
@@ -215,7 +215,7 @@ export default function ({ getService, getPageObjects }: FtrProviderContext) {
           expect(actualLabel.toUpperCase()).to.equal(applicationTitle.toUpperCase());
         });
 
-        // Wazuh: This test is omitted because OpenSearch Dashboards does not appear in the side menu.
+        // Exact-Ti: This test is omitted because OpenSearch Dashboards does not appear in the side menu.
         it.skip('with customized mark logo for opensearch in side menu', async () => {
           await appsMenu.openCollapsibleNav();
           await testSubjects.existOrFail('collapsibleNavGroup-opensearchDashboards');
@@ -263,7 +263,7 @@ export default function ({ getService, getPageObjects }: FtrProviderContext) {
           expect(url.includes('/app/wz-home')).to.be(true);
         });
 
-        // Wazuh: This test is omitted because OpenSearch Dashboards does not have a home dashboard card.
+        // Exact-Ti: This test is omitted because OpenSearch Dashboards does not have a home dashboard card.
         it.skip('with customized mark logo in home dashboard card', async () => {
           await testSubjects.existOrFail('dashboardCustomLogo');
           const actualLabel = await testSubjects.getAttribute(
@@ -273,7 +273,7 @@ export default function ({ getService, getPageObjects }: FtrProviderContext) {
           expect(actualLabel.toUpperCase()).to.equal(expectedMarkLogoDarkMode.toUpperCase());
         });
 
-        // Wazuh: This test is omitted because OpenSearch Dashboards does not appear in the side menu.
+        // Exact-Ti: This test is omitted because OpenSearch Dashboards does not appear in the side menu.
         it.skip('with customized mark logo for opensearch in side menu', async () => {
           await appsMenu.openCollapsibleNav();
           await testSubjects.existOrFail('collapsibleNavGroup-opensearchDashboards');

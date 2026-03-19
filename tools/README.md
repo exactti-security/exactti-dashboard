@@ -1,10 +1,10 @@
 # Repository Bumper Script
 
-This script automates the process of updating the version, stage, and revision number across various files within the Wazuh Dashboard repository. It uses standard shell commands (`sed`, `awk`, `grep`, etc.) for modifications.
+This script automates the process of updating the version, stage, and revision number across various files within the Exact-Ti Security Platform repository. It uses standard shell commands (`sed`, `awk`, `grep`, etc.) for modifications.
 
 ## Purpose
 
-The primary goal of this script is to ensure consistency when releasing a new version or build stage (alpha, beta, rc) of the Wazuh Dashboard. It modifies key files to reflect the new version information, reducing the chance of manual errors.
+The primary goal of this script is to ensure consistency when releasing a new version or build stage (alpha, beta, rc) of the Exact-Ti Security Platform. It modifies key files to reflect the new version information, reducing the chance of manual errors.
 
 ## Usage
 

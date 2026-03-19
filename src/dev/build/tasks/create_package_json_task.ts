@@ -46,13 +46,13 @@ export const CreatePackageJson: Task = {
       version: config.getBuildVersion(),
       branch: pkg.branch,
       build: {
-        number: pkg.wazuh.version.replace(/\./g, '') + pkg.wazuh.revision,
+        number: pkg.exactti.version.replace(/\./g, '') + pkg.exactti.revision,
         sha: config.getBuildSha(),
         distributable: true,
         release: config.isRelease,
       },
       wazuh: {
-        version: pkg.wazuh.version,
+        version: pkg.exactti.version,
       },
       repository: pkg.repository,
       engines: {

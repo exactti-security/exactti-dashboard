@@ -51,7 +51,7 @@ clean() {
     rm -f ${current_path}/base/Docker/plugins
     rm -f ${current_path}/base/Docker/run-with-retry.sh
     rm -f ${current_path}/rpm/Docker/rpm-builder.sh
-    rm -f ${current_path}/rpm/Docker/wazuh-dashboard.spec
+    rm -f ${current_path}/rpm/Docker/exactti-dashboard.spec
     rm -f ${current_path}/deb/Docker/deb-builder.sh
     rm -rf ${current_path}/deb/Docker/debian
     trap '' EXIT
@@ -64,7 +64,7 @@ ctrl_c() {
 
 get_packages(){
   packages_list=(app base security reportPlugin securityAnalytics alerting notifications)
-  packages_names=("Wazuh plugins" "Wazuh Dashboard" "Security plugin"  "Report plugin" "Security analytics plugin" "Alerting plugin" "Notifications plugin")
+  packages_names=("Exact-Ti plugins" "Exact-Ti Security Platform" "Security plugin"  "Report plugin" "Security analytics plugin" "Alerting plugin" "Notifications plugin")
   valid_url='(https?|ftp|file)://[-[:alnum:]\+&@#/%?=~_|!:,.;]*[-[:alnum:]\+&@#/%=~_|]'
   mkdir -p ${tmp_dir}
   cd ${tmp_dir}
@@ -123,7 +123,7 @@ build_rpm() {
   container_name="dashboard-rpm-builder"
   cp -r ${package_config_dir} ${tmp_dir}
   cp ./rpm-builder.sh ${dockerfile_path}
-  cp ./wazuh-dashboard.spec ${dockerfile_path}
+  cp ./exactti-dashboard.spec ${dockerfile_path}
   run_with_retry docker build -t "${container_name}" "${dockerfile_path}" || return 1
   run_with_retry docker run -t --rm \
     -e "RETRY_MAX_ATTEMPTS=${RETRY_MAX_ATTEMPTS}" \
@@ -186,10 +186,10 @@ help() {
     echo
     echo "Usage: $0 [OPTIONS]"
     echo "    -c,  --commit-sha <sha>         Set the commit sha of this build."
-    echo "    -a,  --app <url/path>           Set the location of the .zip file containing the Wazuh plugin."
-    echo "    -b,  --base <url/path>          Set the location of the .tar.gz file containing the base wazuh-dashboard build."
+    echo "    -a,  --app <url/path>           Set the location of the .zip file containing the Exact-Ti plugin."
+    echo "    -b,  --base <url/path>          Set the location of the .tar.gz file containing the base exactti-dashboard build."
     echo "    -s,  --security <url/path>      Set the location of the .zip file containing the wazuh-security-dashboards-plugin."
-    echo "    -sa, --securityAnalytics <url/path>          Set the location of the .zip file containing the wazuh-dashboard-security-analytics plugin."
+    echo "    -sa, --securityAnalytics <url/path>          Set the location of the .zip file containing the exactti-dashboard-security-analytics plugin."
     echo "    -rp, --reportPlugin <url/path>  Set the location of the .zip file containing the wazuh-reporting-plugin."
     echo "    -al, --alertingPlugin <url/path>  Set the location of the .zip file containing the wazuh-alerting-plugin."
     echo "    -no, --notificationsPlugin <url/path>  Set the location of the .zip file containing the wazuh-notifications-plugin."

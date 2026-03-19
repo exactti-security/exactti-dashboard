@@ -1,5 +1,5 @@
 /*
- * Copyright Wazuh
+ * Copyright Exact-Ti
  * SPDX-License-Identifier: Apache-2.0
  */
 // @ts-check
@@ -761,7 +761,7 @@ class Components {
 function buildHealthCheckReport(criticalTasks, nonCriticalTasks) {
   return /* html */ `
     <div class="title">
-      ${Icons.wazuhDashboard}
+      ${Icons.exacttiDashboard}
       <div>
         <span class="server-is">server is</span>
         <div class="not-ready">not ready yet</div>

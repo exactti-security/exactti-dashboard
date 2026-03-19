@@ -14,7 +14,7 @@ This allows to register the check tasks that can be used by the plugin in the `s
 | `healthcheck.interval` | define the interval to run the health check after the initial check | 15m | 5m to 24h |
 | `healthcheck.retries_delay` | define the wait time after a failed overall health check | 2.5s | 0 to 1m |
 | `healthcheck.max_retries` | define the maximum count of retries of the overall health check that can be executed | 5 | integer, minimum 1 |
-| `healthcheck.server_not_ready_troubleshooting_link` | define the troubleshooting link in the not-ready server | URL to Wazuh docs | a valid URL |
+| `healthcheck.server_not_ready_troubleshooting_link` | define the troubleshooting link in the not-ready server | URL to Exact-Ti docs | a valid URL |
 
 ## Enabling checks
 
@@ -249,7 +249,7 @@ server    log   [10:04:59.621] [info][healthcheck] Enabled checks [2]: [server-a
 The backend service uses a logger tagged as `healthcheck`, so the user can use that keyword to filter the related logs.
 
 ```console
-journalctl -ru wazuh-dashboard | grep healthcheck
+journalctl -ru exactti-dashboard | grep healthcheck
 ```
 
 The user can increase the verbosity with the `logging.verbose: true` setting.

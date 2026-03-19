@@ -16,7 +16,7 @@ describe('home settings', () => {
   const getValidationFn = (setting: UiSettingsParams) => (value: any) =>
     setting.schema.validate(value);
 
-  // Wazuh: Skip test because it is not used in Wazuh for now
+  // Exact-Ti: Skip test because it is not used in Exact-Ti for now
   describe.skip('home:useNewHomePage', () => {
     const validate = getValidationFn(uiSettings['home:useNewHomePage']);
 

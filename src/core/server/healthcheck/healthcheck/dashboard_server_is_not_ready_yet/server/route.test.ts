@@ -1,5 +1,5 @@
 /*
- * Copyright Wazuh
+ * Copyright Exact-Ti
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -22,7 +22,7 @@ describe('configureDashboardServerIsNotReadyRoutes', () => {
     });
 
     // One catch-all HTML route + three static asset routes
-    // Wazuh: update expected route count to 5 to account for new reset styles route
+    // Exact-Ti: update expected route count to 5 to account for new reset styles route
     expect(server.route).toHaveBeenCalledTimes(5);
 
     const calls = server.route.mock.calls.map((c: any[]) => c[0]);

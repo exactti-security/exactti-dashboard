@@ -14,16 +14,16 @@ services:
         yarn osd bootstrap
       "
 
-  wazuh-dashboard:
+  exactti-dashboard:
     image: node:${NODE_VERSION}
-    container_name: wazuh-dashboard-${OPENSEARCH_VERSION}
+    container_name: exactti-dashboard-${OPENSEARCH_VERSION}
     depends_on:
       installer:
         condition: service_completed_successfully
     ports:
       - 5601:5601 # Map host port 5601 to container port 5601
     expose:
-      - "5601" # Expose port 5601 for web access to Wazuh Dashboard
+      - "5601" # Expose port 5601 for web access to Exact-Ti Security Platform
     volumes:
       - ${REPO_PATH}:/home/node/app
       - ${REPO_PATH}/docker/config/opensearch_dashboards.dev.yml:/home/node/app/config/opensearch_dashboards.dev.yml

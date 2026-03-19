@@ -1,12 +1,12 @@
-# Wazuh Dashboard Development Images
+# Exact-Ti Security Platform Development Images
 
-This directory contains tools and scripts for building Docker images for Wazuh Dashboard development environment.
+This directory contains tools and scripts for building Docker images for Exact-Ti Security Platform development environment.
 
 ## Files Overview
 
 - **build-multiarch.sh**: Multi-architecture build script (AMD64 and ARM64)
 - **wzd.dockerfile**: Dockerfile for building the development environment
-- **install-plugins.sh**: Script that installs Wazuh plugins during build
+- **install-plugins.sh**: Script that installs Exact-Ti plugins during build
 - **entrypoint.sh**: Container startup script
 - **plugins/**: Directory containing plugin definitions
 - **README.md**: This documentation
@@ -62,13 +62,13 @@ The `build-multiarch.sh` script simplifies building images for both AMD64 and AR
 | ----------------------------- | ----- | ------------------------------------------ | ------------------------- |
 | `--node-version`              | `-n`  | Node.js version                            | `22.22.0`                 |
 | `--opensearch-version`        | `-o`  | OpenSearch Dashboard version               | `3.5.0.0`                 |
-| `--wazuh-branch`              | `-w`  | Wazuh Dashboard branch                     | `main`                    |
-| `--security-branch`           | `-s`  | Wazuh Dashboard Security branch            | `main`                    |
-| `--reporting-branch`          | `-r`  | Wazuh Dashboard Reporting branch           | `main`                    |
-| `--plugins-branch`            | `-p`  | Wazuh Dashboard Plugins branch             | `main`                    |
-| `--security-analytics-branch` | `-sa` | Wazuh Dashboard Security analystics branch | `main`                    |
-| `--alerting-branch`           | `-al` | Wazuh Dashboard Alerting branch            | `main`                    |
-| `--notifications-branch`      | `-no` | Wazuh Dashboard Notifications branch       | `main`                    |
+| `--wazuh-branch`              | `-w`  | Exact-Ti Security Platform branch                     | `main`                    |
+| `--security-branch`           | `-s`  | Exact-Ti Security Platform Security branch            | `main`                    |
+| `--reporting-branch`          | `-r`  | Exact-Ti Security Platform Reporting branch           | `main`                    |
+| `--plugins-branch`            | `-p`  | Exact-Ti Security Platform Plugins branch             | `main`                    |
+| `--security-analytics-branch` | `-sa` | Exact-Ti Security Platform Security analystics branch | `main`                    |
+| `--alerting-branch`           | `-al` | Exact-Ti Security Platform Alerting branch            | `main`                    |
+| `--notifications-branch`      | `-no` | Exact-Ti Security Platform Notifications branch       | `main`                    |
 | `--tag`                       | `-t`  | Docker image tag                           | `3.5.0-5.0.0`             |
 | `--platform`                  | `-pl` | Target platform (architecture)             | `linux/amd64,linux/arm64` |
 | `--push`                      |       | Push image to registry                     | `false` (local build)     |
@@ -161,7 +161,7 @@ The following build arguments are supported:
 
 - **NODE_VERSION**: Node.js runtime version (check `.nvmrc` file for compatibility)
 - **OPENSEARCH_DASHBOARD_VERSION**: Base OpenSearch Dashboard version
-- **WAZUH_DASHBOARD_BRANCH**: Main Wazuh Dashboard repository branch
+- **WAZUH_DASHBOARD_BRANCH**: Main Exact-Ti Security Platform repository branch
 - **WAZUH_DASHBOARD_SECURITY_BRANCH**: Security plugin branch
 - **WAZUH_DASHBOARD_REPORTING_BRANCH**: Reporting plugin branch
 - **WAZUH_DASHBOARD_PLUGINS_BRANCH**: Core plugins branch
@@ -171,8 +171,8 @@ The following build arguments are supported:
 The built image includes:
 
 - Node.js runtime environment
-- Wazuh Dashboard with specified branch
-- Pre-installed Wazuh plugins (security, reporting, core plugins)
+- Exact-Ti Security Platform with specified branch
+- Pre-installed Exact-Ti plugins (security, reporting, core plugins)
 - Development dependencies
 - Configured workspace at `/home/node/kbn`
 

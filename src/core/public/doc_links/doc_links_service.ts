@@ -62,8 +62,8 @@ export class DocLinksService {
     const OPENSEARCH_WEBSITE_DOCS = `${OPENSEARCH_WEBSITE_URL}docs/${DOC_LINK_VERSION}`;
     const OPENSEARCH_VERSIONED_DOCS = `${OPENSEARCH_WEBSITE_DOCS}/opensearch/`;
     const OPENSEARCH_DASHBOARDS_VERSIONED_DOCS = `${OPENSEARCH_WEBSITE_DOCS}/dashboards/`;
-    const WAZUH_DOC_VERSION = injectedMetadata.getWazuhDocVersion();
-    const WAZUH_WEBSITE_DOCS = `https://documentation.wazuh.com/${WAZUH_DOC_VERSION}`;
+    const WAZUH_DOC_VERSION = injectedMetadata.getExact-TiDocVersion();
+    const WAZUH_WEBSITE_DOCS = `https://documentation.exactti.com/${WAZUH_DOC_VERSION}`;
 
     return deepFreeze({
       DOC_LINK_VERSION,

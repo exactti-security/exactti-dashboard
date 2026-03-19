@@ -80,7 +80,7 @@ export class OpenSearchDashboardsOverviewPlugin
       distinct(),
       map(() => {
         return () => {
-          // Wazuh: Hide the OpenSearch Dashboards Overview app
+          // Exact-Ti: Hide the OpenSearch Dashboards Overview app
           return {
             status: AppStatus.inaccessible,
             navLinkStatus: AppNavLinkStatus.hidden,

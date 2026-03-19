@@ -22,13 +22,13 @@ Usage: $0 [OPTIONS]
 OPTIONS:
     -n, --node-version              Node.js version (default: $NODE_VERSION)
     -o, --opensearch-version        OpenSearch Dashboard version (default: $OPENSEARCH_DASHBOARD_VERSION)
-    -w, --wazuh-branch              Wazuh Dashboard branch (default: $WAZUH_DASHBOARD_BRANCH)
-    -s, --security-branch           Wazuh Dashboard Security branch (default: $WAZUH_DASHBOARD_SECURITY_BRANCH)
-    -r, --reporting-branch          Wazuh Dashboard Reporting branch (default: $WAZUH_DASHBOARD_REPORTING_BRANCH)
-    -p, --plugins-branch            Wazuh Dashboard Plugins branch (default: $WAZUH_DASHBOARD_PLUGINS_BRANCH)
-    -sa, --security-analytics-branch  Wazuh Dashboard Security Analytics branch (default: $WAZUH_DASHBOARD_SECURITY_ANALYTICS_BRANCH)
-    -al, --alerting-branch          Wazuh Dashboard Alerting branch (default: $WAZUH_DASHBOARD_ALERTING_BRANCH)
-    -no, --notifications-branch      Wazuh Dashboard Notifications branch (default: $WAZUH_DASHBOARD_NOTIFICATIONS_BRANCH)
+    -w, --wazuh-branch              Exact-Ti Security Platform branch (default: $WAZUH_DASHBOARD_BRANCH)
+    -s, --security-branch           Exact-Ti Security Platform Security branch (default: $WAZUH_DASHBOARD_SECURITY_BRANCH)
+    -r, --reporting-branch          Exact-Ti Security Platform Reporting branch (default: $WAZUH_DASHBOARD_REPORTING_BRANCH)
+    -p, --plugins-branch            Exact-Ti Security Platform Plugins branch (default: $WAZUH_DASHBOARD_PLUGINS_BRANCH)
+    -sa, --security-analytics-branch  Exact-Ti Security Platform Security Analytics branch (default: $WAZUH_DASHBOARD_SECURITY_ANALYTICS_BRANCH)
+    -al, --alerting-branch          Exact-Ti Security Platform Alerting branch (default: $WAZUH_DASHBOARD_ALERTING_BRANCH)
+    -no, --notifications-branch      Exact-Ti Security Platform Notifications branch (default: $WAZUH_DASHBOARD_NOTIFICATIONS_BRANCH)
     -t, --tag                       Image tag (default: $TAG)
     -pl, --platform                 Target platform (default: $PLATFORM)
     --push                          Push image to registry
@@ -108,7 +108,7 @@ done
 echo "=== Build Configuration ==="
 echo "Node Version: $NODE_VERSION"
 echo "OpenSearch Dashboard Version: $OPENSEARCH_DASHBOARD_VERSION"
-echo "Wazuh Dashboard Branch: $WAZUH_DASHBOARD_BRANCH"
+echo "Exact-Ti Security Platform Branch: $WAZUH_DASHBOARD_BRANCH"
 echo "Security Branch: $WAZUH_DASHBOARD_SECURITY_BRANCH"
 echo "Reporting Branch: $WAZUH_DASHBOARD_REPORTING_BRANCH"
 echo "Plugins Branch: $WAZUH_DASHBOARD_PLUGINS_BRANCH"

@@ -17,11 +17,11 @@ The script can build a `.tar.gz` (former base), and `rpm` and `deb` packages. Th
 
 The inputs are the following:
 
-- `-a`, `--app`: Set the `wazuh-dashboard-plugins` branch.
-- `-b`, `--base`: Set the `wazuh-dashboard` branch.
+- `-a`, `--app`: Set the `exactti-dashboard-plugins` branch.
+- `-b`, `--base`: Set the `exactti-dashboard` branch.
 - `-s`, `--security`: Set the `wazuh-security-dashboards-plugin` branch.
-- `-sa`, `--securityAnalytics`: Set the `wazuh-dashboard-security-analytics` branch.
-- `-r`, `--reporting`: Set the `wazuh-dashboard-reporting` branch.
+- `-sa`, `--securityAnalytics`: Set the `exactti-dashboard-security-analytics` branch.
+- `-r`, `--reporting`: Set the `exactti-dashboard-reporting` branch.
 - `--node-version`: [Optional] Set the node version.
 - `--arm`: [Optional] Build for arm64 instead of x64.
 

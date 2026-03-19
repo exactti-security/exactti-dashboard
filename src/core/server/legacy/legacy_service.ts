@@ -242,7 +242,7 @@ export class LegacyService implements CoreService {
         createStoreFromRequest: startDeps.core.dynamicConfig.createStoreFromRequest,
       },
       workspace: startDeps.core.workspace,
-      // Wazuh
+      // Exact-Ti
       healthCheck: startDeps.core.healthCheck,
     };
 
@@ -315,7 +315,7 @@ export class LegacyService implements CoreService {
       getStartServices: () => Promise.resolve([coreStart, startDeps.plugins, {}]),
       security: setupDeps.core.security,
       workspace: setupDeps.core.workspace,
-      // Wazuh
+      // Exact-Ti
       healthCheck: setupDeps.core.healthCheck,
     };
 

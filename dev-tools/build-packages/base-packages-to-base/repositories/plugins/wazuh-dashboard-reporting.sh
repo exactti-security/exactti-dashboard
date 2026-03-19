@@ -1,12 +1,12 @@
-# Clone the Wazuh security plugin
+# Clone the Exact-Ti security plugin
 source /usr/local/lib/wazuh/run-with-retry.sh
 
 cd /home/node/app/plugins
-run_with_retry git clone --depth 1 --branch ${WAZUH_DASHBOARD_REPORTING_BRANCH} https://github.com/wazuh/wazuh-dashboard-reporting.git
-cd wazuh-dashboard-reporting
+run_with_retry git clone --depth 1 --branch ${WAZUH_DASHBOARD_REPORTING_BRANCH} https://github.com/wazuh/exactti-dashboard-reporting.git
+cd exactti-dashboard-reporting
 run_with_retry yarn install
-echo "Building Wazuh reporting plugin"
+echo "Building Exact-Ti reporting plugin"
 run_with_retry yarn build
-echo "Copying Wazuh reporting plugin"
-mkdir /home/node/packages/wazuh-dashboard-reporting
-cp -r build/* /home/node/packages/wazuh-dashboard-reporting
+echo "Copying Exact-Ti reporting plugin"
+mkdir /home/node/packages/exactti-dashboard-reporting
+cp -r build/* /home/node/packages/exactti-dashboard-reporting

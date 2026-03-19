@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Wazuh package generator
-# Copyright (C) 2022, Wazuh Inc.
+# Exact-Ti package generator
+# Copyright (C) 2022, Exact-Ti Inc.
 #
 # This program is a free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public
@@ -67,7 +67,7 @@ log "Extracting packages"
 log
 
 packages_list=(app base security reportPlugin securityAnalytics alerting notifications)
-packages_names=("Wazuh plugins" "Wazuh Dashboard" "Security plugin" "Report plugin" "Security analytics plugin" "Alerting plugin" "Notifications plugin")
+packages_names=("Exact-Ti plugins" "Exact-Ti Security Platform" "Security plugin" "Report plugin" "Security analytics plugin" "Alerting plugin" "Notifications plugin")
 
 for i in "${!packages_list[@]}"; do
   package_var="${packages_list[$i]}"
@@ -161,6 +161,6 @@ log
 
 mkdir -p $out_dir
 cp ${current_path}/VERSION.json .
-tar -czf $out_dir/wazuh-dashboard-$version-$revision-linux-$architecture.tar.gz *
+tar -czf $out_dir/exactti-dashboard-$version-$revision-linux-$architecture.tar.gz *
 
 log Done!

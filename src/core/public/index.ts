@@ -299,7 +299,7 @@ export interface CoreSetup<TPluginsStart extends object = object, TStart = unkno
   chat: ChatServiceSetup;
   /** {@link TelemetryServiceSetup} */
   telemetry: TelemetryServiceSetup;
-  // Wazuh
+  // Exact-Ti
   /** {@link HealthCheckServiceSetup} */
   healthCheck: HealthCheckServiceSetup;
 }
@@ -364,7 +364,7 @@ export interface CoreStart {
   chat: ChatServiceStart;
   /** {@link TelemetryServiceStart} */
   telemetry: TelemetryServiceStart;
-  // Wazuh
+  // Exact-Ti
   /** {@link HealthCheckServiceStart} */
   healthCheck: HealthCheckServiceStart;
 }

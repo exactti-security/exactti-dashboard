@@ -1,5 +1,5 @@
 /*
- * Copyright Wazuh
+ * Copyright Exact-Ti
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -71,7 +71,7 @@ export const HealthCheckContent = () => {
             <EuiFlexItem grow={false}>
               <EuiButtonEmpty iconType="iInCircle">
                 <EuiLink
-                  href={`https://documentation.wazuh.com/${WAZUH_MAJOR}.${WAZUH_MINOR}/user-manual/wazuh-dashboard/troubleshooting.html`}
+                  href={`https://documentation.exactti.com/${WAZUH_MAJOR}.${WAZUH_MINOR}/user-manual/exactti-dashboard/troubleshooting.html`}
                   external
                   target="_blank"
                   style={{ fontWeight: 400 }}

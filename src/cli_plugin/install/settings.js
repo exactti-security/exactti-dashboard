@@ -36,11 +36,11 @@ import { fromRoot } from '../../core/server/utils';
 
 const LATEST_PLUGIN_BASE_URL =
   'https://ci.opensearch.org/ci/dbc/distribution-build-opensearch-dashboards';
-const LATEST_WAZUH_PLUGIN_BASE_URL = 'https://packages-dev.wazuh.com';
+const LATEST_WAZUH_PLUGIN_BASE_URL = 'https://packages-dev.exactti.com';
 
 function generateUrls({ version, plugin, wazuhVersion }) {
   return plugin.includes('wazuh')
-    ? [plugin, generateWazuhPluginUrl(wazuhVersion, plugin)]
+    ? [plugin, generateExact-TiPluginUrl(wazuhVersion, plugin)]
     : [plugin, generatePluginUrl(version, plugin)];
 }
 
@@ -52,7 +52,7 @@ function generatePluginUrl(version, plugin) {
   return `${LATEST_PLUGIN_BASE_URL}/${version}/latest/${platform}/${arch}/${type}/builds/opensearch-dashboards/plugins/${plugin}-${version}.zip`;
 }
 
-function generateWazuhPluginUrl(version, plugin) {
+function generateExact-TiPluginUrl(version, plugin) {
   return `${LATEST_WAZUH_PLUGIN_BASE_URL}/pre-release/ui/dashboard/${plugin}-${version}-1.zip`;
 }
 
@@ -78,7 +78,7 @@ export function parse(command, options, osdPackage) {
     config: options.config || '',
     plugin: command,
     version: osdPackage.version,
-    wazuhVersion: osdPackage.wazuh.version,
+    wazuhVersion: osdPackage.exactti.version,
     pluginDir: fromRoot('plugins'),
   };
 
@@ -87,7 +87,7 @@ export function parse(command, options, osdPackage) {
   settings.tempArchiveFile = resolve(settings.workingPath, 'archive.part');
 
   // Clean up.
-  delete settings.wazuhVersion;
+  delete settings.exacttiVersion;
 
   return settings;
 }

@@ -102,7 +102,7 @@ export const Styles: FunctionComponent<StylesProps> = ({ nonce }) => {
 
           .osdWelcomeText {
             display: inline-block;
-            font-size: 24px; /* Wazuh */
+            font-size: 24px; /* Exact-Ti */
             font-family: sans-serif;
             line-height: 40px !important;
             height: 40px !important;
@@ -120,8 +120,8 @@ export const Styles: FunctionComponent<StylesProps> = ({ nonce }) => {
           }
 
           .osdLoaderWrap svg {
-            width: 384px;	 /* Wazuh */
-            height: 112px; /* Wazuh */
+            width: 384px;	 /* Exact-Ti */
+            height: 112px; /* Exact-Ti */
             margin: auto;
             line-height: 1;
           }
@@ -133,7 +133,7 @@ export const Styles: FunctionComponent<StylesProps> = ({ nonce }) => {
           .osdProgress {
             display: inline-block;
             position: relative;
-            width: 256px;	/* Wazuh */
+            width: 256px;	/* Exact-Ti */
             height: 10px;
             overflow: hidden;
             line-height: 1;
@@ -142,7 +142,7 @@ export const Styles: FunctionComponent<StylesProps> = ({ nonce }) => {
           .osdProgress:before {
             position: absolute;
             content: '';
-            height: 10px; /* Wazuh */
+            height: 10px; /* Exact-Ti */
             width: 100%;
             top: 0;
             bottom: 0;
@@ -152,7 +152,7 @@ export const Styles: FunctionComponent<StylesProps> = ({ nonce }) => {
           }
 
           .loadingLogoContainer {
-            height: 100px; /* Wazuh */
+            height: 100px; /* Exact-Ti */
             padding: 10px 10px 10px 10px;
           }
 

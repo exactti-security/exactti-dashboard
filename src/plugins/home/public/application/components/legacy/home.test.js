@@ -305,7 +305,7 @@ describe('home', () => {
 
       expect(component).toMatchSnapshot();
     });
-    // Skip test because it is not used in Wazuh dashboard
+    // Skip test because it is not used in Exact-Ti dashboard
     test.skip('stores skip welcome setting if skipped', async () => {
       defaultProps.localStorage.getItem = sinon.spy(() => 'true');
 
@@ -317,7 +317,7 @@ describe('home', () => {
 
       expect(component).toMatchSnapshot();
     });
-    // Skip test because it is not used in Wazuh dashboard
+    // Skip test because it is not used in Exact-Ti dashboard
     test.skip('should show the normal home page if loading fails', async () => {
       defaultProps.localStorage.getItem = sinon.spy(() => 'true');
 
